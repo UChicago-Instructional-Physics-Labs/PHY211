@@ -31,8 +31,8 @@ class particle_list:
         return ty
     def get_t(self):
         tt = []
-        for item in self.particles:
-            tt.append(item.t)
+        #for item in self.particles:
+            #tt.append(item.t)
         for item in self.decayed_particles:
             tt.append(item.t)
         return tt
@@ -103,7 +103,8 @@ while (time.time() < t_end):
     time_data = lst.get_t()
     dat,bins = np.histogram(time_data,bins=hist_bins)
         # generates histogram data from the particle lifetimes
-    ax2.errorbar(bins[0:-1],dat,np.sqrt(dat),fmt='.r',alpha=0.5)
+    #ax2.errorbar(bins[0:-1],dat,np.sqrt(dat),fmt='.r',alpha=0.5)
+    ax2.plot(bins[0:-1],dat,'k.')
         # makes a plot of the binned data, with square root N error bars
         # note that since numpy's histogram gives back one more bin value that data point, we need to chop one off the array
         # hence the [0:-1] notation
